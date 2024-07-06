@@ -1,0 +1,4 @@
+# This files won't be included in the project
+
+node_modules
+.env
