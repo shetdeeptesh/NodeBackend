@@ -1,5 +1,4 @@
-const jwt = require("jsonwebtoken");
-const secret = "secret";
+const jwt = require("../helpers/jwtHelper");
 
 function setUser(user) {
   const payload = {
@@ -7,14 +6,13 @@ function setUser(user) {
     firstName: user.firstName,
     lastName: user.lastName,
     email: user.email,
-    role: user.role,
   };
-  return jwt.sign(payload, secret);
+  return jwt.sign(payload);
 }
 
 function getUser(token) {
   if (!token) return null;
-  return jwt.verify(token, secret);
+  return jwt.verify(token);
 }
 
 module.exports = { setUser, getUser };

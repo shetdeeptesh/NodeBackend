@@ -1,9 +1,6 @@
 const User = require("../models/userModel");
 
-const {
-  hashPassword,
-  comparePassword,
-} = require("../helpers/password_hashing");
+const { hashPassword, comparePassword } = require("../helpers/passwordHashing");
 const { setUser } = require("../service/authService");
 
 // to get all users with pagination enabled

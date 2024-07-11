@@ -1,4 +1,5 @@
 const fs = require("fs");
+const dateFormater = require("../helpers/dateFormatter")
 
 function logReqRes(filename) {
   return (req, res, next) => {
@@ -6,8 +7,8 @@ function logReqRes(filename) {
       return next();
     }
     fs.appendFile(
-      "app/serverlogs/" + filename,
-      `\n${Date.now()}:${req.ip} ${req.method} : ${req.path}\n`,
+      "app/serverlogs/" + filename+"_"+dateFormater.getFormattedDate()+".log",
+      `${dateFormater.getFormattedDate('dd MM yyyy, HH:mm:ss')}, ${req.ip}, ${req.method}, ${req.path}\n`,
       (err, data) => {
         next();
       }

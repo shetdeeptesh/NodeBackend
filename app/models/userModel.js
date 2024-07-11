@@ -20,14 +20,8 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
     role: {
-      type: String,
-      enum: ["student", "company", "admin","local"],
-      required: true,
-      default: "local",
-    },
-    company: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Company",
+      ref: 'Role',
     },
     isDeleted: {
       type: Boolean,
